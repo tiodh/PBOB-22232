@@ -16,5 +16,7 @@ namespace KepadatanPengunjung
         {
             InitializeComponent();
         }
+
+        private DateTimePicker dateTimePicker1;
     }
 }
