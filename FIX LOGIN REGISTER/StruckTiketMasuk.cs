@@ -74,10 +74,10 @@ namespace rembangan_part_5
         {
 
         }
-
+        public string promodigunakan { get; set; }  // mengambil nilai promodigunakan dari form promo
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            label7.Text = promodigunakan;   // menampilkan nilai promodigunakan pada label7
         }
 
         private void Form2_Resize(object sender, EventArgs e)

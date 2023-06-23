@@ -10,10 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Security.Cryptography.X509Certificates;
+using rembangan_part_5;
 
 namespace Promo_Pemesanan
 {
-    public partial class Promo: Form
+    public partial class Promo : Form
     {
         private Size formOriginalSize; //menyimpan ukuran asli dari form sebelum ada perubahan
         private Rectangle recpanel1;
@@ -150,10 +152,10 @@ namespace Promo_Pemesanan
                 if (result == DialogResult.Yes)
                 {
                     // Tindakan jika pengguna memilih "Ya"
-                    Pemesanan pemesanan = new Pemesanan();
-                    pemesanan.promodigunakan = label2.Text;
-                    this.Hide();
-                    pemesanan.Show();
+                    StruckTiketMasuk struk = new StruckTiketMasuk();
+                    struk.promodigunakan = label2.Text;    // mengirim nilai label ke variabel promodigunakan
+                    this.Hide();    // menyembunyikan form promo
+                    struk.Show();   // menampilkan form struk
                 }
                 else if (result == DialogResult.No)
                 {
@@ -200,10 +202,10 @@ namespace Promo_Pemesanan
                 if (result == DialogResult.Yes)
                 {
                     // Tindakan jika pengguna memilih "Ya"
-                    Pemesanan pemesanan = new Pemesanan();
-                    pemesanan.promodigunakan = label7.Text;
-                    this.Hide();
-                    pemesanan.Show();
+                    StruckTiketMasuk struk = new StruckTiketMasuk();
+                    struk.promodigunakan = label7.Text;    // mengirim nilai label ke variabel promodigunakan
+                    this.Hide();    // menyembunyikan form promo
+                    struk.Show();   // menampilkan form struk
                 }
                 else if (result == DialogResult.No)
                 {
@@ -250,10 +252,10 @@ namespace Promo_Pemesanan
                 if (result == DialogResult.Yes)
                 {
                     // Tindakan jika pengguna memilih "Ya"
-                    Pemesanan pemesanan = new Pemesanan();
-                    pemesanan.promodigunakan = label11.Text;
-                    this.Hide();
-                    pemesanan.Show();
+                    StruckTiketMasuk struk = new StruckTiketMasuk();
+                    struk.promodigunakan = label11.Text;    // mengirim nilai label ke variabel promodigunakan
+                    this.Hide();    // menyembunyikan form promo
+                    struk.Show();   // menampilkan form struk
                 }
                 else if (result == DialogResult.No)
                 {
@@ -282,7 +284,65 @@ namespace Promo_Pemesanan
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            promo(); // mengeksekusi method promo
+        }
+        public int tiketdipesan { get; set; } // mengambil nilai tiket yang dipesan yang ada di form book_tiket
+        private void promo()
+        {
+            int syarat_tiket;   // inisialisasi syarat_tiket menjadi integer
+            // membuka koneksi ke database
+            NpgsqlConnection con = new NpgsqlConnection("Server=localhost; Port=5432; Database=Jecation; User Id=postgres; Password=Anggun28_;");
+            con.Open();
+            NpgsqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = ("SELECT nama_voucher, tanggal_berakhir, min_pembelian FROM voucher");
+            cmd.ExecuteNonQuery();
+            NpgsqlDataReader reader = cmd.ExecuteReader();
             
+            DateTime tanggal_sekarang = DateTime.Now;   // inisialisasi tanggal saat ini pada variabel tanggal_sekarang
+
+            // membaca database promo kemudian menampilkannya pada label di form promo
+            if (reader.Read())
+            {
+                label2.Text = reader["nama_voucher"].ToString();
+                DateTime tanggal_berakhir = (DateTime)reader["tanggal_berakhir"];
+                label3.Text = tanggal_berakhir.ToString("yyyy-mm-dd");
+                syarat_tiket = reader.GetInt32(reader.GetOrdinal("min_pembelian"));
+
+                if (tiketdipesan < syarat_tiket || tanggal_sekarang > tanggal_berakhir)
+                {
+                    btnpromo1.Enabled = false;
+                    btnpromo1.ForeColor = Color.FromArgb(102, 98, 98);
+                }
+            }
+            if (reader.Read())
+            {
+                label7.Text = reader["nama_voucher"].ToString();
+                DateTime tanggal_berakhir = (DateTime)reader["tanggal_berakhir"];
+                label6.Text = tanggal_berakhir.ToString("yyyy-mm-dd");
+                syarat_tiket = reader.GetInt32(reader.GetOrdinal("min_pembelian"));
+
+                if (tiketdipesan < syarat_tiket || tanggal_sekarang > tanggal_berakhir)
+                {
+                    btnpromo2.Enabled = false;
+                    btnpromo2.ForeColor = Color.FromArgb(102, 98, 98);
+                }
+            }
+            if (reader.Read())
+            {
+                label11.Text = reader["nama_voucher"].ToString();
+                DateTime tanggal_berakhir = (DateTime)reader["tanggal_berakhir"];
+                label10.Text = tanggal_berakhir.ToString("yyyy-mm-dd");
+                syarat_tiket = reader.GetInt32(reader.GetOrdinal("min_pembelian"));
+
+                if (tiketdipesan < syarat_tiket || tanggal_sekarang > tanggal_berakhir)
+                {
+                    btnpromo3.Enabled = false;
+                    btnpromo3.ForeColor = Color.FromArgb(102, 98, 98);
+                }
+            }
+            cmd.Dispose();
+            con.Close();
         }
     }
 }
