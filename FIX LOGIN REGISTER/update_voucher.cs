@@ -222,7 +222,82 @@ namespace WinFormsApp2
         {
 
         }
+        private void OnButtonaktifclick(object sender, EventArgs e)
+        {
+            string query = "UPDATE detail_kamar SET status_kamar = '1' WHERE id_detail_kamar = ";
 
+            Button button = (Button)sender;
 
+            if (button == buttonaktif1)
+            {
+                query += "1";
+            }
+            else if (button == buttonaktif2)
+            {
+                query += "2";
+            }
+            else if (button == buttonaktif3)
+            {
+                query += "3";
+            }
+            else if (button == buttonaktif4)
+            {
+                query += "4";
+            }
+            else if (button == buttonaktif5)
+            {
+                query += "5";
+            }
+            else if (button == buttonaktif6)
+            {
+                query += "6";
+            }
+
+            connection.Open();
+            int affectedRows = new NpgsqlCommand(query, connection).ExecuteNonQuery();
+            if (affectedRows > 0)
+            {
+                ///data berhasil di update
+            }
+            else
+            {
+                ///data gagal di update
+            }
+            connection.Close();
+        }
+
+        private void OnButtonNonAktifClick(object sender, EventArgs e)
+        {
+            string query = "UPDATE detail_kamar SET status_kamar = '0' WHERE id_detail_kamar = ";
+
+            Button button = (Button)sender;
+
+            if (button == buttonaktif1)
+            {
+                query += "1";
+            }
+            else if (button == buttonaktif2)
+            {
+                query += "2";
+            }
+            else if (button == buttonaktif3)
+            {
+                query += "3";
+            }
+            else if (button == buttonaktif4)
+            {
+                query += "4";
+            }
+            else if (button == buttonaktif5)
+            {
+                query += "5";
+            }
+            else if (button == buttonaktif6)
+            {
+                query += "6";
+            }
+        }
     }
+
 }
+
