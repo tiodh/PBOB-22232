@@ -11,6 +11,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using System.Reflection.Emit;
+using Npgsql;
+
 namespace WinFormsApp2
 {
     public partial class update_voucher : Form
@@ -69,6 +71,10 @@ namespace WinFormsApp2
         private Rectangle reclabel16;
         private Rectangle reclabel23;
         private Rectangle repicturebox3;
+        private NpgsqlConnection connection = new NpgsqlConnection
+        {
+            ConnectionString = $"Host=localhost;Port=5432;Username=postgres;Password=Rickey_123;Database=DatabasePBOB;"
+        };
 
 
         public update_voucher()
@@ -216,5 +222,7 @@ namespace WinFormsApp2
         {
 
         }
+
+
     }
 }
