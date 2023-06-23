@@ -154,7 +154,6 @@ namespace homepage_admin
         {
             label12.Text = text;
         }
-
         public void ShowLabel12()
         {
             label12.Show();
@@ -182,6 +181,10 @@ namespace homepage_admin
         public void ShowErrorMessage(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public DialogResult ShowConfirmationDialog(string message, string caption)
+        {
+            return MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
         private void panelout_Paint(object sender, PaintEventArgs e)
         {
