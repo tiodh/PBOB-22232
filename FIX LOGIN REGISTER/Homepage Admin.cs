@@ -15,7 +15,7 @@ namespace homepage_admin
         private Rectangle reclbl4;
         private Rectangle reclbl5;
         private Rectangle recpnlout;
-        public HomepageAdmin()
+        public HomepageAdmin(FIX_LOGIN_REGISTER.Login.User user)
         {
             InitializeComponent();
             this.Resize += Form1_Resize;
