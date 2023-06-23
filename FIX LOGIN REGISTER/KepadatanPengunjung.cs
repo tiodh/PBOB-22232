@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Design_Informasi_Kepadatan_Pengunjung
+namespace KepadatanPengunjung
 {
     partial class Form1
     {
