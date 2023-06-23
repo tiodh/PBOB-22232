@@ -1,3 +1,5 @@
+using fixlahyah;
+using Guna.UI2.AnimatorNS;
 using Guna.UI2.WinForms.Enums;
 using Npgsql;
 
@@ -15,6 +17,7 @@ namespace homepage_admin
         private Rectangle reclbl4;
         private Rectangle reclbl5;
         private Rectangle recpnlout;
+        private NotifController controller;
         public HomepageAdmin(FIX_LOGIN_REGISTER.Login.User user)
         {
             InitializeComponent();
@@ -29,6 +32,7 @@ namespace homepage_admin
             reclbl4 = new Rectangle(lblstts_kmr.Location, lblstts_kmr.Size);
             reclbl5 = new Rectangle(lblkritik.Location, lblkritik.Size);
             recpnlout = new Rectangle(panelout.Location, panelout.Size);
+            controller = new NotifController(this);
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -142,7 +146,46 @@ namespace homepage_admin
             //fm2.Show();
             //hidenotif();
         }
+        public void updatelabel8(string text)
+        {
+            label8.Text = text;
+        }
+        public void updatelabel12(string text)
+        {
+            label12.Text = text;
+        }
+        public void ShowLabel12()
+        {
+            label12.Show();
+        }
 
+        public void HideButton1()
+        {
+            guna2Button1.Hide();
+        }
+
+        public void HideButton2()
+        {
+            guna2Button2.Hide();
+        }
+
+        public void HideButton3()
+        {
+            guna2Button3.Hide();
+        }
+
+        public void HideButton4()
+        {
+            guna2Button4.Hide();
+        }
+        public void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public DialogResult ShowConfirmationDialog(string message, string caption)
+        {
+            return MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
         private void panelout_Paint(object sender, PaintEventArgs e)
         {
 
@@ -226,7 +269,8 @@ namespace homepage_admin
 
         private void homepage_admin_Load(object sender, EventArgs e)
         {
-
+            controller.BacaData();
+            controller.BacaNotif();
         }
     }
 }
