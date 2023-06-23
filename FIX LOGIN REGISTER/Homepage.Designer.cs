@@ -62,6 +62,7 @@
             label15 = new Label();
             panel2 = new Panel();
             panel11 = new Panel();
+            label32 = new Label();
             label33 = new Label();
             label31 = new Label();
             label10 = new Label();
@@ -94,7 +95,6 @@
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
-            label32 = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -530,6 +530,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1896, 2441);
             panel2.TabIndex = 16;
+            panel2.Paint += panel2_Paint;
             // 
             // panel11
             // 
@@ -549,6 +550,17 @@
             panel11.Size = new Size(350, 2441);
             panel11.TabIndex = 36;
             panel11.Visible = false;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("Montserrat SemiBold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label32.Location = new Point(39, 416);
+            label32.Name = "label32";
+            label32.Size = new Size(74, 25);
+            label32.TabIndex = 44;
+            label32.Text = "Ulasan";
+            label32.Click += label32_Click;
             // 
             // label33
             // 
@@ -916,17 +928,6 @@
             label3.Size = new Size(569, 260);
             label3.TabIndex = 17;
             label3.Text = "Berlibur Seru\ndan Berkesan dengan\nWisata Alam\nTerindah di Jember";
-            // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Montserrat SemiBold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label32.Location = new Point(39, 416);
-            label32.Name = "label32";
-            label32.Size = new Size(74, 25);
-            label32.TabIndex = 44;
-            label32.Text = "Ulasan";
-            label32.Click += label32_Click;
             // 
             // Homepage
             // 

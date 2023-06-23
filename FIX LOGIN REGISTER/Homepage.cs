@@ -483,5 +483,10 @@ namespace FIX_LOGIN_REGISTER
             ulasan.Show();
             this.Hide();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
