@@ -125,10 +125,6 @@ namespace Promo_Pemesanan
             c.Size = new Size(newWidth, newHeight);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
         private bool guna2Button1MouseClick = false;
         private bool guna2Button2MouseClick = false;
         private bool guna2Button3MouseClick = false;
