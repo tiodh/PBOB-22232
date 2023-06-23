@@ -29,27 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomepageAdmin));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panelout = new Panel();
             PanelNotif = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            label14 = new Label();
-            pictureBox5 = new PictureBox();
             label12 = new Label();
-            label13 = new Label();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            pictureBox4 = new PictureBox();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
             label8 = new Label();
-            label7 = new Label();
             label6 = new Label();
             panel2 = new Panel();
             lblkritik = new Label();
@@ -60,10 +56,10 @@
             pcboxlogout = new PictureBox();
             lblhome = new Label();
             pictureBox1 = new PictureBox();
+            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             panel1.SuspendLayout();
             PanelNotif.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcboxlogout).BeginInit();
@@ -97,76 +93,38 @@
             // 
             PanelNotif.BackColor = Color.Transparent;
             PanelNotif.BorderRadius = 10;
-            PanelNotif.Controls.Add(label14);
-            PanelNotif.Controls.Add(pictureBox5);
+            PanelNotif.Controls.Add(guna2Button4);
+            PanelNotif.Controls.Add(guna2Button3);
             PanelNotif.Controls.Add(label12);
-            PanelNotif.Controls.Add(label13);
             PanelNotif.Controls.Add(guna2Button2);
             PanelNotif.Controls.Add(guna2Button1);
-            PanelNotif.Controls.Add(pictureBox4);
-            PanelNotif.Controls.Add(label11);
-            PanelNotif.Controls.Add(label10);
-            PanelNotif.Controls.Add(label9);
             PanelNotif.Controls.Add(label8);
-            PanelNotif.Controls.Add(label7);
             PanelNotif.Controls.Add(label6);
-            PanelNotif.CustomizableEdges = customizableEdges5;
+            PanelNotif.CustomizableEdges = customizableEdges9;
             PanelNotif.Location = new Point(867, 106);
             PanelNotif.Name = "PanelNotif";
-            PanelNotif.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            PanelNotif.ShadowDecoration.CustomizableEdges = customizableEdges10;
             PanelNotif.Size = new Size(343, 563);
             PanelNotif.TabIndex = 2;
             PanelNotif.Visible = false;
             PanelNotif.Paint += PanelNotif_Paint;
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(79, 306);
-            label14.Name = "label14";
-            label14.Size = new Size(139, 20);
-            label14.TabIndex = 12;
-            label14.Text = "Kode Pembayaran";
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(14, 257);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(44, 50);
-            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox5.TabIndex = 11;
-            pictureBox5.TabStop = false;
-            // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(79, 284);
+            label12.Location = new Point(64, 260);
             label12.Name = "label12";
             label12.Size = new Size(147, 20);
             label12.TabIndex = 10;
             label12.Text = "Kode Pembayaran :";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = Color.FromArgb(8, 102, 255);
-            label13.Location = new Point(67, 257);
-            label13.Name = "label13";
-            label13.Size = new Size(186, 20);
-            label13.TabIndex = 9;
-            label13.Text = "User telah membeli ini";
-            label13.Click += label13_Click;
             // 
             // guna2Button2
             // 
             guna2Button2.BorderColor = Color.FromArgb(221, 221, 221);
             guna2Button2.BorderRadius = 2;
             guna2Button2.BorderThickness = 1;
-            guna2Button2.CustomizableEdges = customizableEdges1;
+            guna2Button2.CustomizableEdges = customizableEdges5;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -176,7 +134,7 @@
             guna2Button2.ForeColor = Color.FromArgb(8, 102, 255);
             guna2Button2.Location = new Point(209, 214);
             guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button2.Size = new Size(96, 20);
             guna2Button2.TabIndex = 8;
             guna2Button2.Text = "Batal";
@@ -186,7 +144,7 @@
             guna2Button1.BorderColor = Color.FromArgb(8, 102, 255);
             guna2Button1.BorderRadius = 2;
             guna2Button1.BorderThickness = 1;
-            guna2Button1.CustomizableEdges = customizableEdges3;
+            guna2Button1.CustomizableEdges = customizableEdges7;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -196,71 +154,21 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(35, 214);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Button1.Size = new Size(153, 20);
             guna2Button1.TabIndex = 7;
             guna2Button1.Text = "Konfirmasi";
             guna2Button1.Click += guna2Button1_Click;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(14, 73);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(44, 50);
-            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox4.TabIndex = 6;
-            pictureBox4.TabStop = false;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(79, 175);
-            label11.Name = "label11";
-            label11.Size = new Size(96, 20);
-            label11.TabIndex = 5;
-            label11.Text = "Rp. 100.000";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(79, 150);
-            label10.Name = "label10";
-            label10.Size = new Size(92, 20);
-            label10.TabIndex = 4;
-            label10.Text = "Total Harga";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(79, 125);
-            label9.Name = "label9";
-            label9.Size = new Size(112, 20);
-            label9.TabIndex = 3;
-            label9.Text = "Berapa malam";
-            // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(79, 100);
+            label8.Location = new Point(64, 73);
             label8.Name = "label8";
             label8.Size = new Size(93, 20);
             label8.TabIndex = 2;
             label8.Text = "Nama Hotel";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(67, 73);
-            label7.Name = "label7";
-            label7.Size = new Size(141, 20);
-            label7.TabIndex = 1;
-            label7.Text = "User membeli ini";
             // 
             // label6
             // 
@@ -391,13 +299,53 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // homepage_admin
+            // guna2Button3
+            // 
+            guna2Button3.BorderColor = Color.FromArgb(8, 102, 255);
+            guna2Button3.BorderRadius = 2;
+            guna2Button3.BorderThickness = 1;
+            guna2Button3.CustomizableEdges = customizableEdges3;
+            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button3.FillColor = Color.FromArgb(8, 102, 255);
+            guna2Button3.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Location = new Point(35, 349);
+            guna2Button3.Name = "guna2Button3";
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button3.Size = new Size(153, 20);
+            guna2Button3.TabIndex = 11;
+            guna2Button3.Text = "Konfirmasi";
+            // 
+            // guna2Button4
+            // 
+            guna2Button4.BorderColor = Color.FromArgb(221, 221, 221);
+            guna2Button4.BorderRadius = 2;
+            guna2Button4.BorderThickness = 1;
+            guna2Button4.CustomizableEdges = customizableEdges1;
+            guna2Button4.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button4.FillColor = Color.FromArgb(221, 221, 221);
+            guna2Button4.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2Button4.ForeColor = Color.FromArgb(8, 102, 255);
+            guna2Button4.Location = new Point(212, 349);
+            guna2Button4.Name = "guna2Button4";
+            guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button4.Size = new Size(96, 20);
+            guna2Button4.TabIndex = 12;
+            guna2Button4.Text = "Batal";
+            // 
+            // HomepageAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
             Controls.Add(panel1);
-            Name = "homepage_admin";
+            Name = "HomepageAdmin";
             Text = "homepage_admin";
             Load += homepage_admin_Load;
             TextChanged += Form1_TextChanged;
@@ -405,8 +353,6 @@
             panel1.ResumeLayout(false);
             PanelNotif.ResumeLayout(false);
             PanelNotif.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -428,19 +374,13 @@
         private Label lblstaff;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PanelNotif;
         private Label label6;
-        private Label label7;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private PictureBox pictureBox4;
-        private Label label11;
-        private Label label10;
-        private Label label9;
         private Label label8;
-        private PictureBox pictureBox5;
         private Label label12;
-        private Label label13;
-        private Label label14;
         private Panel panelout;
         private Label lblkritik;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
