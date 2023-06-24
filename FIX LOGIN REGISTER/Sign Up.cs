@@ -10,11 +10,75 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 using System.ComponentModel.DataAnnotations;
+using Npgsql;
 
 namespace FIX_LOGIN_REGISTER
 {
     public partial class Sign_Up : Form
     {
+        private NpgsqlConnection connection;
+        private string connectionString = "Server=localhost; Port =5432; user id=postgres; Password=; Database=jecation;";
+
+        public Sign_Up()
+        {
+            InitializeComponent();
+            connection = new NpgsqlConnection(connectionString);
+            FillProvinces();
+        }
+
+        private void FillProvinces()
+        {
+            try
+            {
+                string query = "SELECT * FROM reg_province";
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection);
+                DataTable provinceTable = new DataTable();
+                adapter.Fill(provinceTable);
+                cbox3.DisplayMember = "name";
+                cbox3.ValueMember = "id_province";
+                cbox3.DataSource = provinceTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan saat mengisi data provinsi: " + ex.Message);
+            }
+        }
+        private void FillKab(int provinceid)
+        {
+            try
+            {
+                string query = "SELECT * FROM reg_kabupaten WHERE id_province = @id_province";
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@id_province", provinceid);
+                DataTable cityTable = new DataTable();
+                adapter.Fill(cityTable);
+                cbox2.DisplayMember = "name";
+                cbox2.ValueMember = "id_kab";
+                cbox2.DataSource = cityTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan saat mengisi data kota/kabupaten: " + ex.Message);
+            }
+        }
+        private void FillKec(int kabId)
+        {
+            try
+            {
+                string query = "SELECT * FROM reg_kecamatan WHERE id_kab = @id_kab";
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@id_kab", kabId);
+                DataTable districtTable = new DataTable();
+                adapter.Fill(districtTable);
+                cbox1.DisplayMember = "name";
+                cbox1.ValueMember = "id_kec";
+                cbox1.DataSource = districtTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan saat mengisi data kecamatan: " + ex.Message);
+            }
+        }
 
         private Size formOriginalSize;
         private Rectangle rectb7;
@@ -354,54 +418,156 @@ namespace FIX_LOGIN_REGISTER
 
         private void guna2GradientTileButton1_Click(object sender, EventArgs e)
         {
-            if (tbox1.Text == "")
+            try
             {
-                lbl13.Show();
-            }
-            else
-            {
-                lbl13.Hide();
-            }
-            if (tbox2.Text == "")
-            {
-                lbl14.Show();
-            }
-            else { lbl14.Hide(); }
-            if (tbox3.Text == "")
-            {
-                lbl10.Show();
-            }
-            else
-            {
-                lbl10.Hide();
-            }
-            if (tbox4.Text == "")
-            {
-                lbl11.Show();
-            }
-            else
-            {
-                lbl11.Hide();
-            }
-            if (tbox5.Text == "")
-            {
-                lbl12.Show();
-            }
-            else
-            {
-                lbl12.Hide();
-            }
-            if (tbox7.Text == "")
-            {
-                lbl18.Show();
-            }
-            else
-            {
-                lbl18.Hide();
-            }
-            return;
-        }
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string nik = tbox7.Text;
+                    string nama_ibu = tbox6.Text;
+                    string firstname = tbox1.Text;
+                    string lastname = tbox2.Text;
+                    string username_akun = tbox3.Text;
+                    string password = tbox4.Text;
+                    string confirm = tbox5.Text;
+                    string provinsi = cbox3.Text;
+                    string kabupaten = cbox2.Text;
+                    string kecamatan = cbox1.Text;
+                    string password_akun = GetSHA256Hash(password);
+                    string confhash = GetSHA256Hash(confirm);
 
+
+
+                    if (password_akun != confhash)
+                    {
+                        MessageBox.Show("Password dan Confirm Passsword do not match");
+
+                        return;
+
+                    }
+
+
+
+                    string checkUsernameQuery = "SELECT COUNT(*) FROM akun WHERE username_akun = @username_akun";
+
+                    using (NpgsqlCommand checkUsernameCommand = new NpgsqlCommand(checkUsernameQuery, connection))
+                    {
+                        checkUsernameCommand.Parameters.AddWithValue("username_akun", username_akun);
+
+                        int usernameCount = Convert.ToInt32(checkUsernameCommand.ExecuteScalar());
+
+                        if (usernameCount > 0)
+                        {
+                            MessageBox.Show("Username sudah digunakan.");
+                            username_akun = "";
+                            return;
+                        }
+                    }
+
+
+
+
+                    string insertDataQuery = "insert into akun(firstname, lastname, username_akun, password_akun, nik, nama_ibu, tgl_lahir_ibu, provinsi,kabupaten,kecamatan) values (@firstname, @lastname, @username_akun, @password_akun, @nik, @nama_ibu, @tgl_lahir_ibu, @provinsi, @kecamatan, @kabupaten)";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(insertDataQuery, connection))
+                    {
+                        if (string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(username_akun) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirm) || string.IsNullOrEmpty(nik) || string.IsNullOrEmpty(nama_ibu))
+                        {
+                            MessageBox.Show("Please fill in your personal data before register");
+                            if (tbox1.Text == "")
+                            {
+                                lbl13.Show();
+                            }
+                            else
+                            {
+                                lbl13.Hide();
+                            }
+                            if (tbox2.Text == "")
+                            {
+                                lbl14.Show();
+                            }
+                            else { lbl14.Hide(); }
+                            if (tbox3.Text == "")
+                            {
+                                lbl10.Show();
+                            }
+                            else
+                            {
+                                lbl10.Hide();
+                            }
+                            if (tbox4.Text == "")
+                            {
+                                lbl11.Show();
+                            }
+                            else
+                            {
+                                lbl11.Hide();
+                            }
+                            if (tbox5.Text == "")
+                            {
+                                lbl12.Show();
+                            }
+                            else
+                            {
+                                lbl12.Hide();
+                            }
+                            if (tbox7.Text == "")
+                            {
+                                lbl18.Show();
+                            }
+                            else
+                            {
+                                lbl18.Hide();
+                            }
+                            return;
+                        }
+                        else if (nik.Length != 16)
+                        {
+                            MessageBox.Show("NIK length must be 16 digits");
+                            lbl18.Text = "NIK must 16 digits";
+                            return;
+                        }
+                        cmd.Parameters.AddWithValue("@firstname", firstname);
+                        cmd.Parameters.AddWithValue("@lastname", lastname);
+                        cmd.Parameters.AddWithValue("@username_akun", username_akun);
+                        cmd.Parameters.AddWithValue("@password_akun", password_akun);
+                        cmd.Parameters.AddWithValue("@nik", nik);
+                        cmd.Parameters.AddWithValue("@nama_ibu", nama_ibu);
+                        cmd.Parameters.AddWithValue("@tgl_lahir_ibu", dtpick1.Value);
+                        cmd.Parameters.AddWithValue("@kecamatan", kecamatan);
+                        cmd.Parameters.AddWithValue("@kabupaten", kabupaten);
+                        cmd.Parameters.AddWithValue("@provinsi", provinsi);
+
+                        int eksekusi = cmd.ExecuteNonQuery();
+
+                        if (eksekusi > 0)
+                        {
+                            MessageBox.Show("Sign up succesfull");
+                            new Login().Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to Sign Up");
+                        }
+                        connection.Close();
+                    }
+                }
+                static string GetSHA256Hash(string input)
+                {
+                    using (SHA256 sha256 = SHA256.Create())
+                    {
+                        byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
+                        return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occured: " + ex.Message);
+            }
+        }
         private void label12_Click(object sender, EventArgs e)
         {
 
@@ -501,12 +667,22 @@ namespace FIX_LOGIN_REGISTER
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbox3.SelectedValue != null)
+            {
+                int SelectedProvinceId = Convert.ToInt32(cbox3.SelectedValue);
+                FillKab(SelectedProvinceId);
+
+            }
 
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbox2.SelectedValue != null)
+            {
+                int selectedCity = Convert.ToInt32(cbox2.SelectedValue);
+                FillKec(selectedCity);
+            }
         }
 
         private void Sign_Up_Resize(object sender, EventArgs e)
