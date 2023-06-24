@@ -1,3 +1,4 @@
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -231,7 +232,406 @@ namespace FAQ
             control.Height = (int)(originalSize.Height * yRatio);
         }
 
+        private void FAQ_Load(object sender, EventArgs e)
+        {
+            //pertanyaan 1
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 1 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask1.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 2 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask2.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 3 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask3.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 4 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask4.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 5 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask5.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 6 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask6.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 7 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask7.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 8 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask8.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 9 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask9.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 10 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask10.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 11 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask11.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 12 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask12.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 13 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask13.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 14 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask14.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 15 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask15.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 16 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask16.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 17 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask17.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 18 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask18.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 19 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask19.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+            using (NpgsqlConnection connection = new NpgsqlConnection("Server=localhost; Port=5432; Database=faq_jecation; User Id=postgres; Password=rifki"))
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT pertanyaan_faq FROM faq WHERE id_faq = 20 ", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Ambil nilai kolom dari baris saat ini menggunakan indeks kolom atau nama kolom
+                    string nama = reader.GetString(0);
+
+                    // Tampilkan nilai kolom menggunakan label atau kontrol lainnya
+                    lblask20.Text = nama + "\n";
+                }
+                reader.Close();
+                connection.Close();
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
         private void lblask17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblask1_Click(object sender, EventArgs e)
         {
 
         }
