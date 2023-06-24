@@ -108,4 +108,68 @@ namespace updatetiket
 
         }
     }
+
+    public class DataDeskripsi
+    {
+        private string idWisata;
+        private string deskripsi;
+
+        public string IdWisata
+        {
+            get { return idWisata; }
+            set { idWisata = value; }
+        }
+        public string Deskripsi
+        {
+            get { return deskripsi; }
+            set { deskripsi = value; }
+        }
+        public static DataDeskripsi dariDataTable(NpgsqlDataReader dt)
+        {
+
+            DataDeskripsi dataDeskripsi = new DataDeskripsi();
+
+
+            // Extract data from the DataRow and set the corresponding properties
+            dataDeskripsi.IdWisata = dt["id_wisata"].ToString();
+            dataDeskripsi.Deskripsi = dt["deskripsi_wisata"].ToString();
+
+
+            return dataDeskripsi;
+        }
+    }
+
+    public class UpdateDeskripsiClass
+    {
+        public UpdateDeskripsiClass()
+        {
+        }
+        public NpgsqlDataReader tampildeskripsi()
+        {
+            NpgsqlConnection con = new NpgsqlConnection("Server=localhost;Port=5432;Database=c;User Id=postgres;Password=Aul094");
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from tempat_wisata where id_wisata=1";
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+
+            return reader;
+
+        }
+        public void updatedeskripsi(string text)
+        {
+            NpgsqlConnection con = new NpgsqlConnection("Server=localhost;Port=5432;Database=c;User Id=postgres;Password=Aul094");
+            con.Open();
+            NpgsqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE tempat_wisata SET deskripsi_wisata = @ayam WHERE id_wisata = 1";
+            string ayam = text;
+            cmd.Parameters.AddWithValue("@ayam", ayam);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+    }
 }

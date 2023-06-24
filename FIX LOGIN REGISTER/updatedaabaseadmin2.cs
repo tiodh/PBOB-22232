@@ -136,4 +136,39 @@ namespace updatetiket
             frm.ShowDialog();
         }
     }
+
+    public partial class updatedeskripsiwisata1 : Form
+    {
+        public updatedeskripsiwisata1()
+        {
+            InitializeComponent();
+            NpgsqlConnection con = new NpgsqlConnection("Server=localhost;Port=5432;Database=c;User Id=postgres;Password=Aul094");
+            con.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from tempat_wisata";
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                dgv.DataSource = dt;
+            }
+            cmd.Dispose();
+            con.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            updatedeskripsiwisata2 form = new updatedeskripsiwisata2();
+            this.Hide();
+            form.ShowDialog();
+        }
+    }
 }
