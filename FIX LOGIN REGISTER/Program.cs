@@ -1,4 +1,4 @@
-namespace GantiPassword
+namespace FAQ
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace GantiPassword
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new GantiPassword1());
+            Application.Run(new FAQ());
         }
     }
 }
