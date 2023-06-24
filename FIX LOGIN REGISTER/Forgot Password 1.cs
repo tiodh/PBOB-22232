@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Npgsql;
 
 namespace FIX_LOGIN_REGISTER
 {
@@ -33,17 +34,17 @@ namespace FIX_LOGIN_REGISTER
             InitializeComponent();
             this.Resize += Forgot_Password_1_Resize;
             formOriginalSize = this.Size;
-            rectb1  = new Rectangle(tbox1.Location, tbox1.Size);
-            rectb2  = new Rectangle(tbox2.Location, tbox2.Size);
-            rectb1  = new Rectangle(tbox3.Location, tbox3.Size);
-            rectb2  = new Rectangle(tbox4.Location, tbox4.Size);
-            reclb1  = new Rectangle(lbl1.Location, lbl1.Size);
-            reclb2  = new Rectangle(lbl2.Location, lbl2.Size);
-            reclb3  = new Rectangle(lbl3.Location, lbl3.Size);
-            reclb4  = new Rectangle(lbl4.Location, lbl4.Size);
+            rectb1 = new Rectangle(tbox1.Location, tbox1.Size);
+            rectb2 = new Rectangle(tbox2.Location, tbox2.Size);
+            rectb1 = new Rectangle(tbox3.Location, tbox3.Size);
+            rectb2 = new Rectangle(tbox4.Location, tbox4.Size);
+            reclb1 = new Rectangle(lbl1.Location, lbl1.Size);
+            reclb2 = new Rectangle(lbl2.Location, lbl2.Size);
+            reclb3 = new Rectangle(lbl3.Location, lbl3.Size);
+            reclb4 = new Rectangle(lbl4.Location, lbl4.Size);
             recdtp1 = new Rectangle(dtpick1.Location, dtpick1.Size);
-            recgb1  = new Rectangle(btn1.Location, btn1.Size);
-            recpb1  = new Rectangle(pcbox1.Location, pcbox1.Size);
+            recgb1 = new Rectangle(btn1.Location, btn1.Size);
+            recpb1 = new Rectangle(pcbox1.Location, pcbox1.Size);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -90,7 +91,55 @@ namespace FIX_LOGIN_REGISTER
 
         private void guna2GradientTileButton1_Click(object sender, EventArgs e)
         {
+            string password = GetSHA256Hash(tbox2.Text);
+            string confirm = GetSHA256Hash(tbox3.Text);
+            if (password != confirm)
+            {
+                MessageBox.Show("Your New Password and Confirm Password Is Not Match");
+                return;
+            }
+            try
+            {
+                NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=jecation;User Id=postgres;Password=;");
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "UPDATE akun SET password_akun = (@password) WHERE username_akun = @username AND nama_ibu = @namaibu AND tgl_lahir_ibu = @hbdibu";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new NpgsqlParameter("@username", tbox4.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("@namaibu", tbox1.Text));
+                string tgl_lahir_ibu = dtpick1.Value.ToString("dd-MM-yyyy");
+                cmd.Parameters.Add(new NpgsqlParameter("@hbdibu", NpgsqlTypes.NpgsqlDbType.Date));
+                cmd.Parameters["@hbdibu"].Value = DateTime.Parse(tgl_lahir_ibu);
+                cmd.Parameters.Add(new NpgsqlParameter("@password", password));
 
+                int eksekusi = cmd.ExecuteNonQuery();
+                if (eksekusi > 0)
+                {
+                    MessageBox.Show("Password Successfully Changed");
+                    new Login().Show();
+                    this.Hide();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Data User Is Invalid");
+                }
+                cmd.Dispose();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            static string GetSHA256Hash(string input)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
+                    return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+                }
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
