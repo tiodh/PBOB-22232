@@ -318,6 +318,7 @@
             btnkirimulasan.TabIndex = 6;
             btnkirimulasan.Text = "Kirim";
             btnkirimulasan.UseVisualStyleBackColor = true;
+            btnkirimulasan.Click += btnkirimulasan_Click_1;
             // 
             // lblpilihrating
             // 
@@ -998,6 +999,7 @@
             btnfiltersearch.TabIndex = 68;
             btnfiltersearch.Text = "Search";
             btnfiltersearch.UseVisualStyleBackColor = false;
+            btnfiltersearch.Click += btnfiltersearch_Click;
             // 
             // pbox
             // 
@@ -1044,6 +1046,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            Load += Form1_Load;
             Resize += Form1_Resize;
             ((System.ComponentModel.ISupportInitialize)pcboxnext).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcboxprevious).EndInit();
