@@ -9,7 +9,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WinFormsDesign
 {
-    public partial class Form1 : Form
+    public partial class TampilanFasilitas : Form
     {
         // -----------------------------------------------------------------------------------------------------------------
         //                                                  CONNECTION                                                      |
@@ -99,7 +99,7 @@ namespace WinFormsDesign
 
 
 
-        public Form1()
+        public TampilanFasilitas()
         {
             InitializeComponent();
             this.Resize += Form1_Resize;
