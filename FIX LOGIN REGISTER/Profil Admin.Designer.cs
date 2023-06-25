@@ -59,7 +59,6 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(12, 12);
             label6.Name = "label6";
             label6.Size = new Size(75, 29);
             label6.TabIndex = 9;
@@ -70,7 +69,7 @@
             button1.BackColor = Color.DodgerBlue;
             button1.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(58, 126);
+            button1.Location = new System.Drawing.Point(217, 283);
             button1.Name = "button1";
             button1.Size = new Size(52, 25);
             button1.TabIndex = 16;
