@@ -91,71 +91,7 @@ namespace FIX_LOGIN_REGISTER
 
         private void guna2GradientTileButton1_Click(object sender, EventArgs e)
         {
-            string password = GetSHA256Hash(textBox2.Text);
-            string confirm = GetSHA256Hash(textBox3.Text);
-            if (password != confirm)
-            {
-                MessageBox.Show("Your New Password and Confirm Password Is Not Match");
-                return;
-            }
-            try
-            {
-                NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=Jecation;User Id=postgres;Password=;");
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "UPDATE akun SET password_akun = (@password) WHERE username_akun = @username AND nama_ibu = @namaibu AND tgl_lahir_ibu = @hbdibu";
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add(new NpgsqlParameter("@username", textBox4.Text));
-                cmd.Parameters.Add(new NpgsqlParameter("@namaibu", textBox1.Text));
-                string tgl_lahir_ibu = dateTimePicker1.Value.ToString("dd-MM-yyyy");
-                cmd.Parameters.Add(new NpgsqlParameter("@hbdibu", NpgsqlTypes.NpgsqlDbType.Date));
-                cmd.Parameters["@hbdibu"].Value = DateTime.Parse(tgl_lahir_ibu);
-                cmd.Parameters.Add(new NpgsqlParameter("@password", password));
-
-                int eksekusi = cmd.ExecuteNonQuery();
-                if (eksekusi > 0)
-                {
-                    MessageBox.Show("Password Successfully Changed");
-                    new Login().Show();
-                    this.Hide();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Data User Is Invalid");
-                }
-                cmd.Dispose();
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            //if (eksekusi > 0)
-            //{
-            //    MessageBox.Show("Password Successfully Changed");
-            //    Form1 f1 = new Form1();
-            //    this.Hide();
-            //    f1.Show();
-            //    return;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Data User Is Invalid");
-            //    return;
-            //}
-
-
-            static string GetSHA256Hash(string input)
-            {
-                using (SHA256 sha256 = SHA256.Create())
-                {
-                    byte[] bytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(input));
-                    return BitConverter.ToString(bytes).Replace("-", "").ToLower();
-                }
-            }
-
+            
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -187,20 +123,17 @@ namespace FIX_LOGIN_REGISTER
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            //textBox4.AutoSize = false;
-            //textBox4.Height = 32;
+           
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //textBox2.AutoSize = false;
-            //textBox2.Height = 32;
+            
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            //textBox3.AutoSize = false;
-            //textBox3.Height = 32;
+            
         }
 
         private void textBox4_Click(object sender, EventArgs e)
