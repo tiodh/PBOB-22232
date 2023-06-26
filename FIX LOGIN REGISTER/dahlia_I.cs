@@ -57,16 +57,6 @@ namespace FIX_LOGIN_REGISTER
             {
                 Opacity += 0.03;
             }
-
-            int targetY = (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2; // Menghitung koordinat Y tengah layar
-            int targetX = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2; // Menghitung koordinat X tengah layar
-
-            
-            this.Location = new Point(targetX, y); // Mengatur posisi form pada koordinat X tengah layar dan koordinat Y yang berubah
-            if (y >= targetY)
-            {
-                effectDetail_dahlia_I.Stop();
-            }
         }
 
         private void bt_close_Click(object sender, EventArgs e)
