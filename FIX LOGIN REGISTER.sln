@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIX LOGIN REGISTER", "FIX LOGIN REGISTER\FIX LOGIN REGISTER.csproj", "{63A92721-5055-405E-B818-588C4DD0529B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{760468D7-66AC-47C2-9BF9-DDC3734B87B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Jecation|Any CPU = Jecation|Any CPU
+		Jecation|x64 = Jecation|x64
+		Jecation|x86 = Jecation|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|x64.ActiveCfg = Debug|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|x64.Build.0 = Debug|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|x86.ActiveCfg = Debug|x86
+		{63A92721-5055-405E-B818-588C4DD0529B}.Debug|x86.Build.0 = Debug|x86
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|Any CPU.ActiveCfg = Jecation|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|Any CPU.Build.0 = Jecation|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|x64.ActiveCfg = Jecation|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|x64.Build.0 = Jecation|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|x86.ActiveCfg = Release|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Jecation|x86.Build.0 = Release|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|x64.ActiveCfg = Release|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|x64.Build.0 = Release|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|x86.ActiveCfg = Release|x64
+		{63A92721-5055-405E-B818-588C4DD0529B}.Release|x86.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C899E21-2A60-40B1-AF84-99C1C4B34464}
+	EndGlobalSection
+EndGlobal
